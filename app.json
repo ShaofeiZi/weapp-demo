@@ -1,12 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/board/board",
     "pages/search/search"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f0f0f0",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "这是导航标题"
+    "navigationBarTitleText": "这是导航标题",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
   },
   "tabBar": {
     "color": "#c0c0c0",
@@ -15,13 +17,13 @@
     "backgroundColor": "#35495e",
     "list": [
       {
-        "text": "榜单",
+        "text": "个人信息",
         "pagePath": "pages/board/board",
         "iconPath": "images/board.png",
         "selectedIconPath": "images/board-actived.png"
       },
       {
-        "text": "搜索",
+        "text": "公司信息",
         "pagePath": "pages/search/search",
         "iconPath": "images/search.png",
         "selectedIconPath": "images/search-actived.png"
