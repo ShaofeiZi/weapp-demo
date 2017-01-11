@@ -28,12 +28,6 @@
         "pagePath": "pages/board/board",
         "iconPath": "images/board.png",
         "selectedIconPath": "images/board-actived.png"
-      },
-      {
-        "text": "我",
-        "pagePath": "pages/profile/profile",
-        "iconPath": "images/profile.png",
-        "selectedIconPath": "images/profile-actived.png"
       }
     ]
   }
