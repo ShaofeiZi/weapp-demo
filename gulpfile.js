@@ -9,11 +9,13 @@ const inquirer = require('inquirer')
 const generatePage = require('generate-weapp-page')
 
 // load all gulp plugins
+// 加载 gulp 插件
 const plugins = gulpLoadPlugins()
 const env = process.env.NODE_ENV || 'development'
 const isProduction = () => env === 'production'
 
 // utils functions
+// 工具函数
 function generateFile (options) {
   const files = generatePage({
     root: path.resolve(__dirname, './src/pages/'),
@@ -44,11 +46,13 @@ function generateJson (options) {
 
 /**
  * Clean distribution directory
+ * 删除 dist 目录
  */
 gulp.task('clean', del.bind(null, ['dist/*']))
 
 /**
  * Lint source code
+ * 检查源代码
  */
 gulp.task('lint', () => {
   return gulp.src(['*.{js,json}', '**/*.{js,json}', '!node_modules/**', '!dist/**', '!**/bluebird.js'])
@@ -59,6 +63,7 @@ gulp.task('lint', () => {
 
 /**
  * Compile js source to distribution directory
+ * 编译JS到生产目录
  */
 gulp.task('compile:js', () => {
   return gulp.src(['src/**/*.js'])
@@ -71,6 +76,7 @@ gulp.task('compile:js', () => {
 
 /**
  * Compile xml source to distribution directory
+ * 编译xml为wxml并且放到生产目录
  */
 gulp.task('compile:xml', () => {
   return gulp.src(['src/**/*.xml'])
@@ -92,6 +98,7 @@ gulp.task('compile:xml', () => {
 
 /**
  * Compile less source to distribution directory
+ * 编译less为wxss放到生产目录
  */
 gulp.task('compile:less', () => {
   return gulp.src(['src/**/*.less'])
@@ -105,6 +112,7 @@ gulp.task('compile:less', () => {
 
 /**
  * Compile json source to distribution directory
+ * 编译JSON到生产目录
  */
 gulp.task('compile:json', () => {
   return gulp.src(['src/**/*.json'])
@@ -138,6 +146,7 @@ gulp.task('compile', ['clean'], next => {
 
 /**
  * Copy extras to distribution directory
+ * 复制到生产目录
  */
 gulp.task('extras', [], () => {
   return gulp.src([
@@ -153,11 +162,13 @@ gulp.task('extras', [], () => {
 
 /**
  * Build
+ * 开发
  */
 gulp.task('build', ['lint'], next => runSequence(['compile', 'extras'], next))
 
 /**
  * Watch source change
+ * 监听代码
  */
 gulp.task('watch', ['build'], () => {
   gulp.watch('src/**/*.js', ['compile:js'])
@@ -169,6 +180,7 @@ gulp.task('watch', ['build'], () => {
 
 /**
  * Generate new page
+ * 生成新页面
  */
 gulp.task('generate', next => {
   inquirer.prompt([
